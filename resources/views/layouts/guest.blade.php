@@ -23,10 +23,10 @@
           </a>
           <!-- Right Section: Links -->
           <div class="flex space-x-4">
-            <a href="/login" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+            <a href="{{route('login')}}" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
               Login
             </a>
-            <a href="/register" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+            <a href="{{route('register')}}" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
               Register
             </a>
           </div>
@@ -34,7 +34,7 @@
       </nav>
     <!-- Content -->
     <main class="py-4">
-        <div class="container">
+        <div class="container mx-auto content-center min-h-[80vh]">
             @yield('content')
         </div>
     </main>

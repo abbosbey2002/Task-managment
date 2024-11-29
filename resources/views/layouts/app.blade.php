@@ -17,7 +17,7 @@
   
 @include('partials.navbar')
     <!-- Main Content -->
-    <main class="container mx-auto my-8 p-6 bg-gray-800 text-gray-200 shadow-md rounded-lg">
+    <main class="container mx-auto min-h-[80vh] my-8 p-6 bg-gray-800 text-gray-200 shadow-md rounded-lg">
         @yield('content')
     </main>
 

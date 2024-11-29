@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Services\AuthService;
+use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
@@ -37,6 +39,13 @@ class LoginController extends Controller
         }
 
         return response()->json(['message' => $res]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/login')->with('success', 'You have been logged out successfully.');
     }
 
     /**

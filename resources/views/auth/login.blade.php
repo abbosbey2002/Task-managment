@@ -18,7 +18,7 @@
                 <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Login</button>
             </form>
             <p class="text-sm mt-4 text-center">
-                Don't have an account? <a href="register.html" class="text-blue-500 hover:underline">Register</a>
+                Don't have an account? <a href="{{route('register')}}" class="text-blue-500 hover:underline">Register</a>
             </p>
         </div>
     </div>
