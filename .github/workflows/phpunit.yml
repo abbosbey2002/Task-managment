@@ -1,0 +1,53 @@
+name: PHPUnit and NPM Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Kodni yuklash
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # PHP-ni sozlash
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1' # PHP versiyasini loyihangizga moslang
+          extensions: pdo_mysql # MySQL kengaytmasini yoqing
+          ini-values: post_max_size=256M # PHP konfiguratsiyasi
+          coverage: xdebug # Kod qamrovini o'lchash uchun Xdebug
+
+      # PHP kutubxonalarini o'rnatish
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      # `.env` faylini sozlash
+      - name: Set up Application Environment
+        run: cp .env.example .env
+
+      # Artisan asosiy sozlamalari
+      - name: Generate Application Key
+        run: php artisan key:generate
+
+      # Ma'lumotlar bazasi migratsiyasi
+      - name: Run Database Migrations
+        run: php artisan migrate --env=testing --force
+
+      # NPM kutubxonalarini o'rnatish
+      - name: Install NPM Dependencies
+        run: npm install
+
+      # NPM skriptlarni ishga tushirish (kerak bo'lsa)
+      - name: Run NPM Scripts
+        run: npm run build
+
+      # PHPUnit testlarini ishlatish
+      - name: Run PHPUnit Tests
+        run: vendor/bin/phpunit --testdox
