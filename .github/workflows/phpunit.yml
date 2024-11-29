@@ -19,7 +19,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # PHP versiyasini loyihangizga moslang
+          php-version: '8.2' # PHP versiyasini loyihangizga moslang
           extensions: pdo_mysql # MySQL kengaytmasini yoqing
           ini-values: post_max_size=256M # PHP konfiguratsiyasi
           coverage: xdebug # Kod qamrovini o'lchash uchun Xdebug
