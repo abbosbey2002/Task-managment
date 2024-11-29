@@ -20,9 +20,9 @@ Welcome to the **Task Management System**! This application is designed to help 
 
 Ensure the following tools are installed before setting up the project:
 
--   **PHP**: >= 8.1
+-   **PHP**: >= 8.2
 -   **Composer**: Latest version
--   **Laravel**: 10.x
+-   **Laravel**: 11.x
 -   **Database**: MySQL/MariaDB/PostgreSQL
 -   **Node.js**: >= 16.x
 -   **NPM/Yarn**: Latest version
